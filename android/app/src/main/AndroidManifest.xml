@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.lucky13capstone">
+    <uses-permission android:name="android.permission.VIBRATE"/>
    <application
-        android:label="lucky13capstone"
+        android:label="BrixColor Finder"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

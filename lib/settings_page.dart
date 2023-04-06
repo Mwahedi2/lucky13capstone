@@ -5,7 +5,6 @@ import 'login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:lucky13capstone/brickview_page.dart';
 
-
 void main() {
   runApp(
     const SettingsPage(),
@@ -21,9 +20,10 @@ class SettingsPage extends StatefulWidget {
 
 class _SettingsPageState extends State<SettingsPage> {
   TextStyle headingStyle = const TextStyle(
-      fontSize: 16,
-      fontWeight: FontWeight.w600,
-      color: Color.fromARGB(223, 212, 89, 100));
+      fontSize: 20,
+      fontWeight: FontWeight.bold,
+      //fontWeight: FontWeight.w600,
+      color: Color.fromARGB(223, 5, 1, 23));
 
   bool lockAppSwitchVal = true;
   bool fingerprintSwitchVal = false;
@@ -35,7 +35,7 @@ class _SettingsPageState extends State<SettingsPage> {
     color: Color.fromARGB(223, 89, 212, 161),
   );
   TextStyle descStyleIOS =
-      const TextStyle(color: Color.fromARGB(255, 194, 13, 13));
+      const TextStyle(color: Color.fromARGB(255, 40, 13, 194));
 
   void _logout() {
     FirebaseAuth.instance.signOut();
@@ -69,7 +69,6 @@ class _SettingsPageState extends State<SettingsPage> {
                 leading: Icon(Icons.cloud),
                 title: Text("History"),
                 subtitle: Text("Settings"),
-
               ),
               const Divider(),
               ListTile(

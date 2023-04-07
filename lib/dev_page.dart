@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:lucky13capstone/model_page.dart';
 import 'package:lucky13capstone/register_page.dart';
 import 'package:lucky13capstone/login_page.dart';
 import 'package:lucky13capstone/settings_page.dart';
+<<<<<<< HEAD
 import 'package:lucky13capstone/live_model.dart';
 import 'package:lucky13capstone/scan_page.dart';
 import 'package:lucky13capstone/brickview_page.dart';
 import 'package:lucky13capstone/history_page.dart';
 import 'package:lucky13capstone/widget/plant_recogniser.dart';
+=======
+import 'package:lucky13capstone/brickview_page.dart';
+import 'package:lucky13capstone/history_page.dart';
+import 'package:lucky13capstone/classifier/lego_recognizer.dart';
+>>>>>>> 828b9eb12b76c93b34acc302d7d8ae0b20eab4e6
 import 'package:firebase_ml_model_downloader/firebase_ml_model_downloader.dart';
 import 'package:flutter/services.dart';
 
@@ -96,6 +101,7 @@ class _DevPageState extends State<DevPage> {
               },
             ),
             ElevatedButton(
+<<<<<<< HEAD
               child: const Text('Plant Demo Scan'),
               onPressed: () {
                 Navigator.push(
@@ -130,6 +136,14 @@ class _DevPageState extends State<DevPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const ModelPage()),
+=======
+              child: const Text('Lego Scan'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const LegoRecogniser()),
+>>>>>>> 828b9eb12b76c93b34acc302d7d8ae0b20eab4e6
                 );
               },
             ),

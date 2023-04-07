@@ -41,7 +41,11 @@ const kBgColor = kColorDarkGrey;
 
 const kTitleTextStyle = TextStyle(
   fontFamily: kDisplayFont,
+<<<<<<< HEAD
   fontSize: 50.0,
+=======
+  fontSize: 30.0,
+>>>>>>> 828b9eb12b76c93b34acc302d7d8ae0b20eab4e6
   color: kColorPinkishRed,
   decoration: TextDecoration.none,
 );
@@ -54,12 +58,36 @@ const kAnalyzingTextStyle = TextStyle(
 
 const kResultTextStyle = TextStyle(
     fontFamily: kDisplayFont,
+<<<<<<< HEAD
     fontSize: 35.0,
+=======
+    fontSize: 25.0,
+>>>>>>> 828b9eb12b76c93b34acc302d7d8ae0b20eab4e6
     color: kColorLightYellow,
     decoration: TextDecoration.none);
 
 const kResultRatingTextStyle = TextStyle(
     fontFamily: kMainFont,
+<<<<<<< HEAD
     fontSize: 18.0,
     color: Colors.white,
     decoration: TextDecoration.none);
+=======
+    fontSize: 20.0,
+    color: Colors.white,
+    decoration: TextDecoration.none);
+
+//settings page
+TextStyle headingStyle = const TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.w600,
+    color: Color.fromARGB(223, 212, 89, 100));
+
+TextStyle headingStyleIOS = const TextStyle(
+  fontWeight: FontWeight.w600,
+  fontSize: 16,
+  color: Color.fromARGB(223, 89, 212, 161),
+);
+TextStyle descStyleIOS =
+    const TextStyle(color: Color.fromARGB(255, 194, 13, 13));
+>>>>>>> 828b9eb12b76c93b34acc302d7d8ae0b20eab4e6

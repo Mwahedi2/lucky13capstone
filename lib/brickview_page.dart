@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class BrickView extends StatefulWidget {
   const BrickView({Key? key}) : super(key: key);
@@ -12,14 +13,12 @@ class MyBrickviewBox extends StatelessWidget {
   final Image blockImage;
 
   const MyBrickviewBox(
-      {super.key,
-        required this.blockText,
-        required this.blockImage});
+      {super.key, required this.blockText, required this.blockImage});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      //spacing between list objects
+        //spacing between list objects
         padding: const EdgeInsets.all(10.0),
         child: ClipRRect(
           //rounding edges of list object
@@ -30,9 +29,9 @@ class MyBrickviewBox extends StatelessWidget {
             color: Colors.grey,
             child: Column(//the values inside the list object
                 children: [
-                  blockImage,
-                  Text(blockText, style: const TextStyle(fontSize: 30.0))
-                ]),
+              blockImage,
+              Text(blockText, style: const TextStyle(fontSize: 30.0))
+            ]),
           ),
         ));
   }
@@ -103,12 +102,13 @@ class _BrickViewState extends State<BrickView> {
         backgroundColor: Colors.black,
       ),
       body: ListView.builder(
-        itemCount: _block.length, //the ListView builder will make a number of list items equal to the number of elements in the _text object
+        itemCount: _block
+            .length, //the ListView builder will make a number of list items equal to the number of elements in the _text object
         itemBuilder: ((context, index) {
           return MyBrickviewBox(
-            blockText: _block[index], //create a MyHistoryBox object with the text input as the _block with the current index
-            blockImage: _image[index]
-          );
+              blockText: _block[
+                  index], //create a MyHistoryBox object with the text input as the _block with the current index
+              blockImage: _image[index]);
         }),
       ),
     );

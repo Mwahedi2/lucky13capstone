@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/services.dart';
 
 class SettingsModel extends ChangeNotifier {
   bool _darkMode;
@@ -27,6 +28,18 @@ class SettingsModel extends ChangeNotifier {
     _language = language;
     notifyListeners();
   }
+
+  //muzhda
+
+  Future getUserEmail() async {
+    DocumentSnapshot document = await FirebaseFirestore.instance
+        .collection('Users')
+        .doc(FirebaseAuth.instance.currentUser?.email)
+        .get();
+    return document;
+  }
+
+  //muzhda is author
 
   Future<void> saveSettings() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();

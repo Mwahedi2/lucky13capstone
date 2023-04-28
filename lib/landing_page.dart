@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:lucky13capstone/register_page.dart';
 import 'package:lucky13capstone/login_page.dart';
@@ -32,6 +33,7 @@ class _LandingPageState extends State<LandingPage> {
           ElevatedButton(
             child: const Text('Login'),
             onPressed: () {
+              HapticFeedback.vibrate();
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const LoginPage()),
@@ -41,6 +43,7 @@ class _LandingPageState extends State<LandingPage> {
           ElevatedButton(
             child: const Text('Register'),
             onPressed: () {
+              HapticFeedback.vibrate();
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const SignUpPage()),
@@ -50,6 +53,7 @@ class _LandingPageState extends State<LandingPage> {
           ElevatedButton(
             child: const Text('Continue as Guest'),
             onPressed: () {
+              HapticFeedback.vibrate();
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const LegoRecogniser()),

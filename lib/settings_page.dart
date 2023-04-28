@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:lucky13capstone/changePass.dart';
 import 'package:lucky13capstone/history_page.dart';
 import 'login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -68,8 +70,9 @@ Widget _generalSettingsColumn(BuildContext context) {
       ListTile(
           leading: const Icon(Icons.cloud),
           title: const Text("History"),
-          subtitle: Text("Settings"),
+          subtitle: const Text("Settings"),
           onTap: () {
+            HapticFeedback.vibrate();
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => const HistoryPage()),
@@ -81,6 +84,7 @@ Widget _generalSettingsColumn(BuildContext context) {
           title: const Text("Brick View"),
           subtitle: const Text("View"),
           onTap: () {
+            HapticFeedback.vibrate();
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => const BrickView()),
@@ -126,9 +130,42 @@ Widget _securitySettingsColumn(BuildContext context, _SettingsPageState state) {
         ],
       ),
       const Divider(),
-      const ListTile(
-        leading: Icon(Icons.lock),
-        title: Text("Change Password"),
+      ListTile(
+        leading: const Icon(Icons.email),
+        title: const Text('Email'),
+        onTap: () {
+          context.read<SettingsModel>().getUserEmail();
+          HapticFeedback.vibrate();
+        },
+      ),
+      const Divider(),
+      ListTile(
+          leading: const Icon(Icons.lock),
+          title: const Text("Change Password"),
+          onTap: () {
+            HapticFeedback.vibrate();
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const ChangePass()),
+            );
+          }),
+      const Divider(),
+      ListTile(
+        leading: const Icon(Icons.save),
+        title: const Text('Save Settings'),
+        onTap: () {
+          HapticFeedback.vibrate();
+          context.read<SettingsModel>().saveSettings();
+        },
+      ),
+      const Divider(),
+      ListTile(
+        leading: const Icon(Icons.save),
+        title: const Text('Save to cloud'),
+        onTap: () {
+          HapticFeedback.vibrate();
+          context.read<SettingsModel>().saveToCloud();
+        },
       ),
       const Divider(),
       ListTile(
@@ -138,19 +175,9 @@ Widget _securitySettingsColumn(BuildContext context, _SettingsPageState state) {
       ),
       const Divider(),
       ListTile(
-        leading: const Icon(Icons.save),
-        title: const Text('Save Settings'),
-        onTap: () {
-          context.read<SettingsModel>().saveSettings();
-        },
-      ),
-      const Divider(),
-      ListTile(
-        leading: const Icon(Icons.save),
-        title: const Text('Save to cloud'),
-        onTap: () {
-          context.read<SettingsModel>().saveToCloud();
-        },
+        leading: const Icon(Icons.delete),
+        title: const Text("Delete Account"),
+        onTap: () => state._logout(context),
       ),
     ],
   );
@@ -169,6 +196,7 @@ Widget _securitySettingsColumnLoggedOut(BuildContext context) {
           leading: const Icon(Icons.person),
           title: const Text("Login"),
           onTap: () {
+            HapticFeedback.vibrate();
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => const LoginPage()),
